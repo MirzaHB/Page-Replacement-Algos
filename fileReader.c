@@ -48,7 +48,6 @@ int readInputFile(const char *filename, DllList *list)
         }
         dirty = atoi(token);
 
-        // Append to the list
         append(list, pageNum, dirty);
         rowCount++;
     }

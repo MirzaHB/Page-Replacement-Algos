@@ -1,17 +1,20 @@
-#ifndef DLLIST_H
-#define DLLIST_H
+#ifndef DLL_H
+#define DLL_H
 
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct
+#define MAX_FRAMES 100
+#define TOTAL_PAGES 500
+
+typedef struct Node Node;
+struct Node
 {
     Node *nextNode;
     Node *prevNode;
-    int pageNum;
-    int dirty;
-} Node;
-
+    uint16_t pageNum;
+    uint16_t dirty;
+};
 typedef struct
 {
     Node *left;
@@ -23,5 +26,7 @@ void append(DllList *list, int pageNum, int dirty);
 void insertAtHead(DllList *list, int pageNum, int dirty);
 void insertAtIndex(DllList *list, int index, int pageNum, int dirty);
 void removeNode(DllList *list, Node *node);
+Node *Search(DllList *List, int pageNum);
+void freeList(DllList *list);
 
 #endif

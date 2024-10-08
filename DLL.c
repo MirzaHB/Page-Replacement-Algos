@@ -74,3 +74,29 @@ void removeNode(DllList *list, Node *node)
 
     free(node);
 }
+
+Node *Search(DllList *List, int pageNum)
+{
+    Node *current = List->left->nextNode;
+    while (current != List->right)
+    {
+        if (current->pageNum == pageNum)
+        {
+            return current;
+        }
+        current = current->nextNode;
+    }
+    return NULL;
+}
+
+void freeList(DllList *list)
+{
+    Node *current = list->left;
+    while (current != NULL)
+    {
+        Node *nextNode = current->nextNode;
+        free(current);
+        current = nextNode;
+    }
+    free(list);
+}
