@@ -45,7 +45,7 @@ void SecondChanceClk_Case1(DllList *referenceList)
                     // add page to ram
                     append(frameList, pageNum, dirty);
                     framesInUse++;
-                    // Set MSB of referenceRegister to 1 and mask to n bits
+                    // Set MSB of referenceRegister to 1
                     frameList->right->prevNode->referenceRegister |= (1 << (n - 1));
                 }
                 else
@@ -76,8 +76,8 @@ void SecondChanceClk_Case1(DllList *referenceList)
 
                     // adding page to ram
                     append(frameList, pageNum, dirty);
-                    // Set MSB of referenceRegister to 1 and mask to n bits
-                    frameList->right->prevNode->referenceRegister = (1U << (n - 1));
+                    // Set MSB of referenceRegister to 1
+                    frameList->right->prevNode->referenceRegister = (1 << (n - 1));
                 }
             }
             else
