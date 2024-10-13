@@ -3,6 +3,7 @@
 #include "DLL.h"
 #include "fileReader.h"
 #include "fifo.h"
+#include "secondChance.h"
 
 int main()
 {
@@ -18,7 +19,17 @@ int main()
         return EXIT_FAILURE;
     }
 
-    FIFO(referenceList);
+    //------------FIFO-------------
+    // FIFO(referenceList);
+
+    //----------Second Chance---------
+    // n is fixed
+    printf("Running SecondChanceClk Case 1:\n");
+    SecondChanceClk_Case1(referenceList);
+
+    // m is fixed
+    printf("\nRunning SecondChanceClk Case 2:\n");
+    SecondChanceClk_Case2(referenceList);
 
     // Clean up
     freeList(referenceList);

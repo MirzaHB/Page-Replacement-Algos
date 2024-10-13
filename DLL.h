@@ -14,6 +14,7 @@ struct Node
     Node *prevNode;
     uint16_t pageNum;
     uint16_t dirty;
+    uint32_t referenceRegister;
 };
 typedef struct
 {

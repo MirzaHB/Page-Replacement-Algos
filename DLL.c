@@ -19,6 +19,7 @@ void append(DllList *list, int pageNum, int dirty)
     Node *newNode = (Node *)malloc(sizeof(Node));
     newNode->pageNum = pageNum;
     newNode->dirty = dirty;
+    newNode->referenceRegister = 0;
 
     newNode->nextNode = list->right;
     newNode->prevNode = list->right->prevNode;
