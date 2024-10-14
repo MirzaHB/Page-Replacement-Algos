@@ -76,6 +76,26 @@ void removeNode(DllList *list, Node *node)
     free(node);
 }
 
+void moveToHead(DllList *list, Node *node)
+{
+    if (node == NULL || node == list->left->nextNode)
+    {
+        // node is at head or null
+        return;
+    }
+
+    // disconnecting node from prev location
+    node->prevNode->nextNode = node->nextNode;
+    node->nextNode->prevNode = node->prevNode;
+
+    // moving node to head
+    node->nextNode = list->left->nextNode;
+    node->prevNode = list->left;
+
+    list->left->nextNode->prevNode = node;
+    list->left->nextNode = node;
+}
+
 Node *Search(DllList *List, int pageNum)
 {
     Node *current = List->left->nextNode;

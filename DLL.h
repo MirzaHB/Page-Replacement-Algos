@@ -27,6 +27,7 @@ void append(DllList *list, int pageNum, int dirty);
 void insertAtHead(DllList *list, int pageNum, int dirty);
 void insertAtIndex(DllList *list, int index, int pageNum, int dirty);
 void removeNode(DllList *list, Node *node);
+void moveToHead(DllList *list, Node *node);
 Node *Search(DllList *List, int pageNum);
 void freeList(DllList *list);
 

@@ -205,9 +205,8 @@ void SecondChanceClk_Case2(DllList *referenceList)
                 Node *current = frameList->left->nextNode;
                 while (current != frameList->right)
                 {
-                    current->referenceRegister >>= 1;
                     // perform a right shift
-                    current->referenceRegister &= (1U << n) - 1;
+                    current->referenceRegister >>= 1;
                     current = current->nextNode;
                 }
                 referenceCounter = 0;
