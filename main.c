@@ -11,23 +11,23 @@
 int main(int argc, char *argv[])
 {
     // make sure correct number of args were passed in
-    if (argc < 2)
+    if (argc < 3)
     {
-        fprintf(stderr, "Usage: %s <algorithm>\n", argv[0]);
-        fprintf(stderr, "Available algorithms: fifo, lru, secondChance\n");
+        fprintf(stderr, "Usage: %s <algorithm> <input_file>\n", argv[0]);
+        fprintf(stderr, "Available algorithms: fifo, optimal, lru, secondChance\n");
         return EXIT_FAILURE;
     }
 
     // read command line
     const char *algorithm = argv[1];
+    const char *inputFilename = argv[2];
 
     DllList *referenceList = createList();
 
-    const char *inputFilename = "Assignment 2 input file.csv";
     int entriesRead = readInputFile(inputFilename, referenceList);
     if (entriesRead < 0)
     {
-        fprintf(stderr, "Failed to read input file.\n");
+        fprintf(stderr, "Failed to read input file: %s\n", inputFilename);
         freeList(referenceList);
         return EXIT_FAILURE;
     }
