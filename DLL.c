@@ -41,6 +41,7 @@ void insertAtHead(DllList *list, int pageNum, int dirty)
     list->left->nextNode = newNode;
 }
 
+// this is never used i think* so it can prob be removed
 void insertAtIndex(DllList *list, int index, int pageNum, int dirty)
 {
     Node *newNode = (Node *)malloc(sizeof(Node));

@@ -4,6 +4,7 @@
 #include "DLL.h"
 #include "fileReader.h"
 #include "fifo.h"
+#include "optimal.h"
 #include "lru.h"
 #include "secondChance.h"
 
@@ -49,10 +50,14 @@ int main(int argc, char *argv[])
         printf("\nRunning SecondChanceClk Case 2:\n");
         SecondChanceClk_Case2(referenceList);
     }
+    else if (strcmp(algorithm, "optimal") == 0)
+    {
+        Optimal(referenceList);
+    }
     else
     {
         fprintf(stderr, "Unknown algorithm: %s\n", algorithm);
-        fprintf(stderr, "Available algorithms: fifo, lru, secondChance\n");
+        fprintf(stderr, "Available algorithms: fifo, optimal, lru, secondChance\n");
         freeList(referenceList);
         return EXIT_FAILURE;
     }
